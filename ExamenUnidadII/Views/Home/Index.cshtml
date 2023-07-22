@@ -1,0 +1,1433 @@
+﻿@model Test
+
+@{
+    ViewData["Title"] = "Test: Inteligencia Emocional";
+}
+
+@*INTRODUCCION AL TEST*@
+<div class="text-center text-dark">
+    <h1 class="fuente fw-bold">Test: Inteligencia Emocional</h1>
+
+    <p class="text-lg-start fuente mt-5">La inteligencia emocional en épocas modernas ha obtenido un grado superior de 
+        importancia.En situaciones cruciales es necesario conocer nuestro nivel de inteligencia emocional, para 
+        saber sobrellevar situaciones cotidianas. Para cualquier persona debe ser importante conocer 
+        sobre este tema, y en especial, conocer su propia inteligencia emocional, tanto para saber manejarla, 
+        controlarla y cuidarlo. <br>
+        Si te preguntas para que es necesario conocer todo esto, sencillamente podemos decirte que, si eres 
+        consciente de tu propia inteligencia emocional, serás capaz de saber como influir en los demás de manera 
+        positiva y, además, tener un conocimiento básico del tema, podrá ayudarte a saber interpretar las emociones 
+        de las demás personas. <br> <br>
+        Es por eso que te presentamos un test sencillo para que puedas saber el nivel de inteligencia emocional que posees.
+        En la siguiente encuesta se te presentaran una serie de preguntas,
+        las cuales, tendran 3 diferentes tipos de Respuesta (Nunca, Algunas Veces
+        y Siempre). Responda cada pregunta con la mayor sinceridad posible y de
+        manera personal. Basado en tus respuestas, se te enviará un correo
+        electrónico con tus resultados.
+    </p>
+</div>
+
+@*FORMULARIO USUARIO*@
+<div class="container-fluid">
+    <div class="col-6 p-5 m-3">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <form asp-action="Index">
+            <div class="mb-3">
+                
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control"/>
+                <span asp-validation-for="Name"></span>
+
+            </div>
+            <div class="mb-3">
+
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email"></span>
+            
+            </div>
+
+            <p class="mt-4">
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>1</button>
+                    Me conozco a mí mismo, sé lo que pienso, lo que
+                    siento y lo que hago.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=1 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=1 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=1 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+            <hr class="hr3">
+            
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>2</button>
+                    Soy capaz de auto motivarme para aprender,
+                    estudiar, aprobar, conseguir algo
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=2 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=2 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=2 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+            <hr class="hr3">
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>3</button>
+                    Cuando las cosas me van mal, mi estado de ánimo
+                    aguanta hasta que las cosas vayan mejor.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=3 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=3 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=3 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>4</button>
+                    Llego a acuerdos razonables con otras personas
+                    cuando tenemos posturas enfrentadas.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=4 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=4 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=4 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>5</button>
+                    Sé qué cosas me ponen alegre y qué cosas me
+                    ponen triste.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=5 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=5 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=5 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>6</button>
+                    Sé lo que es más importante en cada momento.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=6 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=6 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=6 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>7</button>
+                    Cuando hago las cosas bien me felicito a mí
+                    mismo.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=7 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=7 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=7 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+                <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>8</button>
+                    Cuando los demás me provocan
+                    intencionadamente soy capaz de no responder.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=8 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=8 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=8 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+                <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>9</button>
+                    Mi fijo en el lado positivo de las cosas, soy
+                    optimista   
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=9 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=9 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=9 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>10</button>
+                    Controlo mis pensamientos, pienso lo que de
+                    verdad me interesa. 
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=10 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=10 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=10 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>11</button>
+                    Hablo conmigo mismo, en voz baja claro.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=11 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=11 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=11 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>12</button>
+                    Cuando me piden que diga o haga algo que me
+                    parece inaceptable me niego a hacerlo.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=12 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=12 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=12 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>13</button>
+                    Cuando alguien me critica injustamente me
+                    defiendo adecuadamente con el diálogo.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=13 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=13 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=13 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>14</button>
+                    Cuando me critican por algo que es justo lo acepto
+                    porque tienen razón.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=14 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=14 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=14 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>15</button>
+                    Soy capaz de quitarme de la mente las
+                    preocupaciones que me obsesionan.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=15 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=15 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=15 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+                <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>16</button>
+                    Me doy cuenta de lo que dicen, piensan y sienten
+                    las personas más cercanas a mí (amigos,
+                    compañeros, familiares…)
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=16 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=16 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=16 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>17</button>
+                    Valoro las cosas buenas que hago
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=17 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=17 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=17 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>18</button>
+                    Soy capaz de divertirme y pasármelo bien allí
+                    donde esté.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=18 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=18 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=18 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>19</button>
+                    Hay cosas que no me gusta hacer pero sé que hay
+                    que hacerlas y las hago.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=19 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=19 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=19 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+                <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>20</button>
+                    Soy capaz de sonreír.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=20 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=20 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=20 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+                <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>21</button>
+                    Tengo confianza en mí mismo, en lo que soy
+		capaz de hacer, pensar y sentir.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=21 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=21 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=21 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>22</button>
+                    Soy una persona activa, me gusta hacer cosas.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=22 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=22 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=22 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>23</button>
+                    Comprendo los sentimientos de los demás.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=23 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=23 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=23 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>24</button>
+                    Mantengo conversaciones con la gente.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=24 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=24 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=24 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>25</button>
+                    Tengo buen sentido del humor
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=25 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=25 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=25 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>26</button>
+                    Aprendo de los errores que cometo.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=26 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=26 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=26 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>27</button>
+                    En momentos de tensión y ansiedad soy capaz de
+		relajarme y tranquilizarme para no perder el control
+		y actuar apresuradamente.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=27 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=27 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=27 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>28</button>
+                    Soy una persona realista, con los ofrecimientos
+que hago, sabiendo qué cosa puedo cumplir y qué
+no me será posible hacer.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=28 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=28 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=28 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>29</button>
+                    Cuando alguien se muestra muy nervioso/a o
+		exaltado/a lo calmo y tranquilizo.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=29 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=29 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=29 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>30</button>
+                    Tengo las ideas muy claras sobre lo que quiero.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=30 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=30 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=30 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>31</button>
+                    Controlo bien mis miedos y temores.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=31 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=31 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=31 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>32</button>
+                    Si he de estar solo no me agobio por eso.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=32 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=32 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=32 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>33</button>
+                    Formo parte algún grupo o equipo de deporte o de
+		ocio para compartir intereses o aficiones.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=33 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=33 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=33 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>34</button>
+                    Sé cuáles son mis defectos y cómo cambiarlos.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=34 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=34 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=34 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+                  
+            <p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>35</button>
+                    Soy creativo, tengo ideas originales y las
+		desarrollo.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=35 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=35 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=35 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>36</button>
+                    Sé qué pensamientos son capaces de hacerme
+		sentir feliz, triste, enfadado, altruista, angustiado.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=36 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=36 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=36 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>37</button>
+                    Soy capaz de aguantar bien la frustración cuando
+no consigo lo que me propongo.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=37 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=37 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=37 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>38</button>
+                    Me comunico bien con la gente con la que me
+		relaciono.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=38 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=38 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=38 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>39</button>
+                    Soy capaz de comprender el punto vista de los
+		demás.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=39 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=39 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=39 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>40</button>
+                    Identifico las emociones que expresa la gente a mi
+		alrededor.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=40 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=40 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=40 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>41</button>
+                    Soy capaz de verme a mí mismo desde la
+		perspectiva de los otros
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=41 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=41 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=41 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>42</button>
+                    Me responsabilizo de las cosas que hago.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=42 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=42 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=42 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>43</button>
+                    Me adapto a las nuevas situaciones, aunque me
+cuesten algún cambio en mi manera de sentir las
+cosas.
+		exaltado/a lo calmo y tranquilizo.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=43 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=43 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=43 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>44</button>
+                    Creo que soy una persona equilibrada
+		emocionalmente.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=44 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=44 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=44 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+<p>
+                <font class="fuente" size="4">
+                    <button type="button" class="btn btn-sm rounded-pill text-white" style="width: 2rem; height:2rem; background: #008F8C;" disabled>45</button>
+                    Tomo decisiones sin dudar ni titubear demasiado.
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=45 onClick="Engine(1, this.value)" type=radio value=1>
+                    Nunca
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=45 onClick="Engine(1, this.value)" type=radio value=2>
+                    Algunas Veces
+                </font>
+            </p>
+            <p>
+                <font class="fuente" size="3">
+                    <input name=45 onClick="Engine(1, this.value)" type=radio value=3>
+                    Siempre
+                </font>
+
+                <hr class="hr3">
+
+                <button onclick="ValidateAnswers()" class="btn btn-info">Terminar</button>
+
+        </form>
+
+    </div>
+
+    @*FORMULARIO PREGUNTAS*@
+
+    @*CARDS: OTROS TESTS*@
+    <div class="text-center" style="padding-top: 6rem;">
+        <h2 class="fuente fw-bold mb-5">Otros test que podrían interesarte</h2>
+
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                @*TEST ENEAGRAMA*@
+                <div class="col">
+
+                    <div class="card h-100">
+                        <img class="card-img-top p-1" src="~/images/eneagrama.jpg" />
+
+                        <div class="card-body">
+                            <h5 class="card-title fuente">Eneagrama</h5>
+                            <p class="card-text fuente">
+                                El Test de Eneagrama de Personalidad es una herramienta de elección forzada que revela las
+                                funciones psicológicas principales de tu personalidad. Este test te ayudará a descubrir tu verdadero yo y a
+                                comprender mejor tus fortalezas y debilidades.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" target="_blank" href="https://www.psicoactiva.com/test/test-riso-hudson-eneagrama-de-personalidad.htm">Probar test</a>
+                        </div>
+                    </div>
+                </div>
+
+                @*TEST DE ACTITUD*@
+                <div class="col">
+
+                    <div class="card h-100">
+                        <img class="card-img-top p-1" src="~/images/actitud.jpg" />
+
+                        <div class="card-body">
+                            <h5 class="card-title fuente">Test de Actitud</h5>
+                            <p class="card-text fuente">
+                                Test online gratis para determinar cuál es tu actitud frente a la vida. Responde las preguntas y obtendrás 
+                                tu resultado al instante. Conocer cómo eres te ayudará a darte cuenta si debes cambiar.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" target="_blank" href="https://www.psicoactiva.com/test/test-evaluar-actitud/">Probar test</a>
+                        </div>
+                    </div>
+                </div>
+
+                @*TEST DE INTROVERSION O EXTROVERSION*@
+                <div class="col">
+
+                    <div class="card h-100">
+                        <img class="card-img-top p-1" src="~/images/introversion-extroversion.jpg" />
+
+                        <div class="card-body">
+                            <h5 class="card-title fuente">Test de Introversion o Extroversion</h5>
+                            <p class="card-text fuente">
+                                Cuando aprendes a reconocer la personalidad de tu hijo, comprendes su comportamiento en ciertas 
+                                situaciones y puedes actuar con mejor conocimiento de causa. Averigua su tipo de personalidad con este test.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" target="_blank" href="https://www.psicoactiva.com/test/test-de-introversion-extroversion.htm">Probar test</a>
+                        </div>
+                    </div>
+                </div>
+
+                @*TEST COLORES DE LUSCHERCH*@
+                <div class="col">
+
+                    <div class="card h-100">
+                        <img class="card-img-top p-1" src="~/images/colores.png" />
+
+                        <div class="card-body">
+                            <h5 class="card-title fuente">Test de los ocho colores de Luscher</h5>
+                            <p class="card-text fuente">
+                                El test proporciona información valiosa sobre nuestra personalidad y carácter. 
+                                Consiste en ordenar ocho fichas con ocho colores distintos según nuestras preferencias.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" target="_blank" href="https://www.psicoactiva.com/test/personalidad/test-de-los-ocho-colores-de-luscher/">Probar test</a>
+                        </div>
+                    </div>
+                </div>
+
+                @*TEST DE SOCIABILIDAD*@
+                <div class="col">
+
+                    <div class="card h-100">
+                        <img class="card-img-top p-1" src="~/images/sociabilidad.jpg" />
+
+                        <div class="card-body">
+                            <h5 class="card-title fuente">Test de Sociabilidad</h5>
+                            <p class="card-text fuente">
+                                Este cuestionario de personalidad se utiliza para hacer una valoración de la persona, 
+                                acerca de la forma que tiene habitualmente de comportarse, los sentimientos que posee frente 
+                                a determinadas circunstancias, sus principales actitudes, etc.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" target="_blank" href="https://www.psicoactiva.com/test/test-de-sociabilidad.htm">Probar test</a>
+                        </div>
+                    </div>
+                </div>
+
+                @*TEST DEL AUTOCONCEPTO DE ROSENBERG*@
+                <div class="col">
+
+                    <div class="card h-100">
+                        <img class="card-img-top p-1" src="~/images/rosenberg.jpg" />
+
+                        <div class="card-body">
+                            <h5 class="card-title fuente">Test del Autoconcepto de Rosenberg</h5>
+                            <p class="card-text fuente">
+                                El autoconcepto es la imagen que tenemos cada uno de nosotros sobre nosotros mismos y el valor 
+                                que nos otorgamos. Este test de personalidad ofrece una muy acertada valoración de nuestro autoconcepto 
+                                y autoaceptación personal con muy pocas preguntas.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" target="_blank" href="https://www.psicoactiva.com/tests/test-rosenberg.htm">Probar test</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+ 
+    function ValidateAnswers(){
+
+        var result = 0;
+
+        for(var i=1; i<=45; i++){
+
+        if(document.querySelector('input[name=i]:checked').value == null){
+
+            alert("Debe responder cada pregunta");
+            break;
+
+        }else if(document.querySelector('input[name=i]:checked').value == 1){
+
+            result = result + 0;
+
+        }else if(document.querySelector('input[name=i]:checked').value == 2){
+
+            result = result + 1;
+
+        }else if(document.querySelector('input[name=i]:checked').value == 3){
+
+            result = result + 2;
+
+        }
+
+        modelr = result;
+
+    }
+
+    }
+    
+</script>
